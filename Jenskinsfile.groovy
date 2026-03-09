@@ -2,11 +2,12 @@ pipeline {
     agent {
         label  'ecommerce'
     }
-    stage ("build") {
-        steps {
-            echo "building the application..."
-            sh  "/home/pablo/.nvm/versions/node/v20.17.0/bin/node -v"
-            sh  "ls -la"
+    stages {
+        stage ("build") {
+            steps {
+                echo "building the application..."
+                sh  "/home/pablo/.nvm/versions/node/v20.17.0/bin/node -v"
+                 sh  "ls -la"
         }
     }
     stage ("test") {
@@ -24,12 +25,13 @@ pipeline {
     }
     stage ("Criando container e teste de execução..") {
         steps{
-            sh  "do rm --rm ecommerce"
+            sh  "docker rm -f ecommerce || true"
         }
     }
     stage("deploy") {
         steps {
-            echo  "deplying  the application..."
+            echo  "deploying the application..."
         }
     }
+  }
 }
