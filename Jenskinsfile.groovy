@@ -17,7 +17,7 @@ pipeline {
     }
     stage ("Build Image...") {
         steps {
-            sh  "docker rmi ecommercer"
+            //sh  "docker rmi ecommercer"
 
             echo  "Criando imagem Docker do project..."
             sh  "docker images ecommercer "
