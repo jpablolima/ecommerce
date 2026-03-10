@@ -19,6 +19,9 @@ await cartService.default.addItem(myWhishList, item2);
 await cartService.default.deleteItem(myCart,item2.name);
 //await cartService.default.deleteItem(myCart,item1.name);
 
+await cartService.default.displayCart(myCart);
+
+
 console.log("My Cart total IS: R$ ");
 await cartService.default.calculateTotal(myCart);
 
