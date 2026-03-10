@@ -17,17 +17,18 @@ pipeline {
     }
     stage ("Build Image...") {
         steps {
+            sh  "docker rmi ecommercer-latest || true"
+
             echo  "Criando imagem Docker do project..."
-            sh  "docker rmi ecommercer-latest "
             sh  "docker images ecommercer-latest "
             sh  "docker build -t ecommerce ."
-            sh  "docker images"
-
+            sh  "docker images | ecommercer"
         }
     }
     stage ("Criando container e teste de execução..") {
         steps{
             sh  "docker rm -f ecommerce || true"
+            sh  "docker run --rm ecommerce"
         }
     }
     stage("deploy") {
