@@ -17,14 +17,18 @@ async function deleteItem(userCart, name){
 
 async function removeItem(userCart, index){
 
+    const deleteItem  = index -1;
+
+    if (index => 0 && index <userCart.length){
+        userCart.splice(deleteItem, 1)
+    }
 }
 
 
 async function displayCart(userCart) {
     console.log("Cart List:");
     userCart.forEach((item, index) => {
-        console.log(`${index + 1}. ${item.name} - R$ ${item.price}  |
-         ${item.quantity}x|  Subtotal = ${item.subtotal()}`);
+        console.log(`${index + 1}. ${item.name} - R$ ${item.price}  | ${item.quantity}x|  Subtotal = ${item.subtotal()}`);
     });
 }
 
