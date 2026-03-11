@@ -24,8 +24,9 @@ await cartService.default.addItem(myWhishList, item2);
 await cartService.default.displayCart(myCart);
 
 
-console.log("My Cart total IS: R$ ");
-await cartService.default.calculateTotal(myCart);
-
+// console.log("My Cart total IS: R$ ");
+//await cartService.default.calculateTotal(myCart);
+const total = await cartService.default.calculateTotal(myCart);
+console.log( " My Cart total IS: R$  " + total)
 //console.log(item2.subtotal());
 
