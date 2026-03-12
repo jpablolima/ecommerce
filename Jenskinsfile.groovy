@@ -12,18 +12,16 @@ pipeline {
     }
     stage ("test") {
         steps {
-            echo "test"
-            //sh "docker builder prune -a -f"
-            //sh "docker system prune -a -f"
+            echo  "testing the application"
         }
     }
     stage ("Build Image...") {
         steps {
-
+            //sh  "docker rmi ecommercer"
 
             echo  "Criando imagem Docker do project..."
-            sh  "docker images ecommerce"
-           // sh  "docker build --no-cache -t ecommerce:latest ."
+            sh  "docker images ecommercer "
+            sh  "docker build -t ecommerce:latest  ."
             sh  "docker images | grep ecommerce"
         }
     }
