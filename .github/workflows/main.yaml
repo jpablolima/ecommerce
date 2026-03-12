@@ -1,0 +1,19 @@
+name: Run Ecommerce
+run-name: ${{ github.action }} in running the ecommerce
+on:
+    push:
+        branches:
+            - main
+jobs:
+    check-bats-version:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v5
+            - uses: actions/setup-node@v4
+              with:
+                  node-version:  '20'
+            - run: |
+                  echo "Criando imagem Docker do projeto ..."
+                  docker build -t ecommerce .
+                  docker images
+            - run: docker run --rem ecommerce
