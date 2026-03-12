@@ -12,7 +12,8 @@ pipeline {
     }
     stage ("test") {
         steps {
-            echo  "testing the application"
+            sh "docker builder prune -a -f"
+            sh "docker system prune -a -f"
         }
     }
     stage ("Build Image...") {
@@ -20,8 +21,8 @@ pipeline {
             //sh  "docker rmi ecommercer"
 
             echo  "Criando imagem Docker do project..."
-            sh  "docker images ecommercer "
-            sh  "docker build -t ecommerce:latest  ."
+            sh  "docker images ecommerce"
+            sh  "docker build --no-cache -t ecommerce:latest ."
             sh  "docker images | grep ecommerce"
         }
     }
