@@ -16,4 +16,4 @@ jobs:
                   echo "Criando imagem Docker do projeto ..."
                   docker build -t ecommerce .
                   docker images
-            - run: docker run --rem ecommerce
+            - run: docker run --rm ecommerce
