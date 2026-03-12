@@ -22,7 +22,7 @@ pipeline {
             echo  "Criando imagem Docker do project..."
             sh  "docker images ecommercer "
             sh  "docker build -t ecommerce:latest  ."
-            sh  "docker images | grep ecommercer"
+            sh  "docker images | grep ecommerce"
         }
     }
     stage ("Criando container e teste de execução..") {
